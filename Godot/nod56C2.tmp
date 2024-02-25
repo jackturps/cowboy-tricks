@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://dde4rchvfpfsx"]
 
 [ext_resource type="PackedScene" uid="uid://qvw4sufi7bk8" path="res://hand.glb" id="1_k2quh"]
-[ext_resource type="Script" path="res://hand.gd" id="2_7q3g4"]
+[ext_resource type="Script" path="res://hand_movement.gd" id="2_7q3g4"]
 [ext_resource type="PackedScene" uid="uid://ml2wubksefv8" path="res://gun.glb" id="3_42m1s"]
 [ext_resource type="Script" path="res://gun.gd" id="4_avker"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1726, 0.31946)
@@ -16,7 +16,7 @@ light_color = Color(0.878431, 0.878431, 0.878431, 1)
 light_energy = 0.5
 
 [node name="Hand" parent="." node_paths=PackedStringArray("gun") instance=ExtResource("1_k2quh")]
-transform = Transform3D(4.21012e-08, 0.963162, -0.26892, 1, -4.37114e-08, 0, -1.17549e-08, -0.26892, -0.963163, 0, 0, 0)
+transform = Transform3D(-0.0310831, 0.962853, -0.268231, 0.999479, 0.0322655, 1.16351e-10, 0.00865459, -0.268091, -0.963355, 0, 0, 0)
 script = ExtResource("2_7q3g4")
 gun = NodePath("../Gun")
 
@@ -28,5 +28,5 @@ spot_range = 15.0114
 spot_angle = 67.5
 
 [node name="Gun" parent="." instance=ExtResource("3_42m1s")]
-transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, 0, 0, 0)
+transform = Transform3D(-0.0211169, 0.999777, 9.45677e-09, 0.999777, 0.0211169, -8.69098e-08, -8.70901e-08, 7.6194e-09, -1, 0, 0, 0)
 script = ExtResource("4_avker")
