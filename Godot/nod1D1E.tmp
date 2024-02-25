@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dde4rchvfpfsx"]
+
+[ext_resource type="PackedScene" uid="uid://dgcuyc72ymcoj" path="res://hand.glb" id="1_k2quh"]
+[ext_resource type="Script" path="res://hand_movement.gd" id="2_7q3g4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="hand" parent="." instance=ExtResource("1_k2quh")]
+transform = Transform3D(-0.0232842, 0.999728, -0.00120764, 0.998386, 0.0233155, 0.0517815, 0.0517956, 0, -0.998658, -0.717, 0, 0)
+script = ExtResource("2_7q3g4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.41477)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.7684, 0)
