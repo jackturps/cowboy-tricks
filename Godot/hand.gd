@@ -53,6 +53,8 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# TODO: Pretty sure these states are kida busted, implement the state machine correctly.
+	# TODO: Higher skill ceiling if you have to click while your in the zone, can't hold(mouse down to enter state -> mouse hold to stay in state).
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		# TODO: Animation for just bottom fingers.
 		if hand_is_open:

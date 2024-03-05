@@ -66,12 +66,11 @@ func _process(delta):
 		spin_speed += spin_theta
 		spin_speed *= spin_friction
 		rotation.z += (spin_speed * delta)
-		update_cog()
+		
 		
 	elif gun_state == GunState.HELD:
 		rotation.z = deg_to_rad(90)
 		spin_speed = 0
-		update_cog()
 	
 	else:
 		# Separate gravity for movement is useful for tuning game feel.
@@ -79,15 +78,22 @@ func _process(delta):
 		
 		# Don't really need friction for the y-axis.
 		const move_friction = Vector2(0.98, 1)
+		const reflect_friction = Vector2(1, 0.7)
 		
 		move_velocity += (grav_move_force)
 		move_velocity *= move_friction
 		
 		position.x += (move_velocity.x)
 		position.y += (move_velocity.y)
-		position.y = max(-10, position.y)
+		
+		# TODO: More robust boundary checking.		
+		if position.y < -10:
+			position.y = -10
+			move_velocity = move_velocity.reflect(Vector2.RIGHT)
+			move_velocity *= reflect_friction
 		
 		spin_speed *= spin_friction
 		rotate_around_cog(spin_speed * delta)
-		
-		update_cog()
+	
+	# Always keep the COG up to date.
+	update_cog()
